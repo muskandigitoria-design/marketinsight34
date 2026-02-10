@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share Indian official™ | Professional Trading Signals</title>
+    <title>Share Indian official™ | Premium Trading Signals</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -29,8 +29,7 @@
             overflow-x: hidden;
         }
 
-        /* --- UI COMPONENTS --- */
-
+        /* --- TICKER --- */
         .ticker-wrap {
             width: 100%;
             background: rgba(0, 255, 136, 0.1);
@@ -64,8 +63,7 @@
             padding: 40px 0;
         }
 
-        /* --- HERO SECTION --- */
-
+        /* --- HERO --- */
         .hero-section { text-align: center; }
 
         .logo-box {
@@ -109,11 +107,10 @@
         .hero-desc {
             color: var(--text-dim);
             font-size: 1rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
-        /* --- THE CALL TO ACTION --- */
-
+        /* --- ZOOM IN/OUT ANIMATED BUTTON --- */
         .main-button {
             position: relative;
             display: flex;
@@ -125,54 +122,55 @@
             padding: 22px;
             border-radius: 20px;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 40px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+            transition: 0.3s;
+            /* Zoom Effect Animation */
+            animation: zoomInOut 2s ease-in-out infinite;
+            overflow: hidden;
+            border: none;
+            outline: none;
         }
 
-        .main-button:hover { transform: translateY(-3px); box-shadow: 0 25px 50px rgba(0, 255, 136, 0.4); }
-
-        /* --- CONTENT BLOCKS --- */
-
-        .section-title {
-            text-align: left;
-            font-size: 0.9rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            display: block;
-            font-weight: 700;
+        @keyframes zoomInOut {
+            0% { 
+                transform: scale(1); 
+                box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+            }
+            50% { 
+                transform: scale(1.08); 
+                box-shadow: 0 20px 50px rgba(0, 255, 136, 0.6);
+            }
+            100% { 
+                transform: scale(1); 
+                box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+            }
         }
 
-        .features-list {
-            text-align: left;
-            margin-bottom: 40px;
+        .main-button i {
+            margin-right: 15px;
+            font-size: 1.7rem;
         }
 
-        .feature-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: 18px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
+        /* Shining line inside button */
+        .main-button::after {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: -100%; 
+            width: 100%; 
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shine 3s infinite;
         }
 
-        .feature-item i {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-top: 3px;
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
         }
 
-        .feature-item h3 { font-size: 1rem; margin-bottom: 5px; }
-        .feature-item p { font-size: 0.85rem; color: var(--text-dim); }
-
-        /* --- STATS BAR --- */
-
+        /* --- STATS & FEATURES --- */
         .stats-row {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -188,23 +186,48 @@
             text-align: center;
         }
 
-        .stat-box span { display: block; }
-        .stat-box .val { font-weight: 800; color: var(--secondary); font-size: 1.1rem; }
-        .stat-box .lbl { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; margin-top: 4px; }
+        .stat-box .val { font-weight: 800; color: var(--secondary); font-size: 1.1rem; display: block;}
+        .stat-box .lbl { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; margin-top: 4px; display: block;}
 
-        /* --- FOOTER / CREDIT --- */
+        .section-title {
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 700;
+        }
 
+        .feature-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .feature-item i { color: var(--primary); font-size: 1.2rem; margin-top: 3px; }
+        .feature-item h3 { font-size: 1rem; margin-bottom: 5px; }
+        .feature-item p { font-size: 0.85rem; color: var(--text-dim); }
+
+        /* --- FOOTER --- */
         footer {
             border-top: 1px solid var(--border);
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
         }
 
         .disclaimer {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: #555;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             max-width: 400px;
             margin-left: auto;
             margin-right: auto;
@@ -215,26 +238,41 @@
             align-items: center;
             gap: 10px;
             background: #111;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 100px;
             border: 1px solid var(--border);
             text-decoration: none;
             transition: 0.3s;
         }
 
-        .agency-footer:hover { border-color: var(--secondary); }
-        .agency-footer span { font-size: 0.8rem; color: #777; }
-        .agency-footer strong { font-size: 0.8rem; color: var(--secondary); }
+        .agency-footer:hover { border-color: var(--secondary); transform: translateY(-2px); }
+        .agency-footer span { font-size: 0.85rem; color: #888; }
+        .agency-footer strong { font-size: 0.85rem; color: var(--secondary); }
 
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+        /* Status Dot */
+        .live-status {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: -10px;
+            margin-bottom: 30px;
         }
 
-        .main-button::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shine 3s infinite;
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+            animation: blink 1.2s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
@@ -242,7 +280,7 @@
 
     <div class="ticker-wrap">
         <div class="ticker-move">
-            🔥 TOP GAINER: RELIANCE +2.4% &nbsp;&nbsp; | &nbsp;&nbsp; 🚀 BANK NIFTY CALL HIT TARGET 3 &nbsp;&nbsp; | &nbsp;&nbsp; 📊 92% ACCURACY THIS WEEK &nbsp;&nbsp; | &nbsp;&nbsp; JOIN NOW FOR LIVE TRADES &nbsp;&nbsp; | &nbsp;&nbsp; 🚀 NIFTY 50 BULLISH
+            🚀 BANK NIFTY: PREDICTED 450 PTS MOVE HIT &nbsp;&nbsp; | &nbsp;&nbsp; 🔥 RELIANCE TARGET ACHIEVED &nbsp;&nbsp; | &nbsp;&nbsp; 📊 92% ACCURACY SECURED &nbsp;&nbsp; | &nbsp;&nbsp; 📥 NEW SIGNAL POSTED IN TELEGRAM &nbsp;&nbsp; | &nbsp;&nbsp; 🚀 NIFTY 50 BULLISH
         </div>
     </div>
 
@@ -254,80 +292,69 @@
                 <div class="verified-badge"><i class="fas fa-check"></i></div>
             </div>
             <h1>Share Indian official™</h1>
-            <p class="hero-desc">The most accurate Stock Market community in India. We provide high-conviction trades for Nifty, BankNifty, and Options.</p>
+            <p class="hero-desc">India's most powerful trading community. Master Options, Equity, and Intraday moves with institutional precision.</p>
         </div>
 
         <a href="https://t.me/+xKCxwgx87K0xZGVl" class="main-button">
-            <i class="fab fa-telegram" style="margin-right: 15px; font-size: 1.6rem;"></i>
-            JOIN OFFICIAL CHANNEL
+            <i class="fab fa-telegram"></i>
+            JOIN FREE CHANNEL
         </a>
+
+        <div class="live-status">
+            <span class="dot"></span> 1,248 Traders Online Now
+        </div>
 
         <div class="stats-row">
             <div class="stat-box">
                 <span class="val">50K+</span>
-                <span class="lbl">Members</span>
+                <span class="lbl">Traders</span>
             </div>
             <div class="stat-box">
                 <span class="val">92%</span>
-                <span class="lbl">Accuracy</span>
+                <span class="lbl">Wins</span>
             </div>
             <div class="stat-box">
                 <span class="val">FREE</span>
-                <span class="lbl">Access</span>
+                <span class="lbl">Signals</span>
             </div>
         </div>
 
-        <span class="section-title">What You Get Inside</span>
-        <div class="features-list">
-            <div class="feature-item">
-                <i class="fas fa-bolt"></i>
-                <div>
-                    <h3>Live Market Signals</h3>
-                    <p>Get instant entry, target, and stop-loss alerts before the move happens.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-chart-pie"></i>
-                <div>
-                    <h3>Daily Market View</h3>
-                    <p>Pre-market and post-market analysis to prepare you for the trading day.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-university"></i>
-                <div>
-                    <h3>Options Scalping</h3>
-                    <p>Specialized BankNifty hero-zero setups and high-speed scalping trades.</p>
-                </div>
+        <span class="section-title">Why Expert Traders Join Us</span>
+        <div class="feature-item">
+            <i class="fas fa-bolt"></i>
+            <div>
+                <h3>Instant Trade Alerts</h3>
+                <p>Buy/Sell signals sent instantly to your phone with precise entry points.</p>
             </div>
         </div>
-
-        <p style="text-align: center; font-size: 0.8rem; color: var(--primary); font-weight: 700;">
-            <i class="fas fa-circle" style="font-size: 8px; margin-right: 5px; animation: pulse 1.5s infinite;"></i>
-            142 People Joined in the last 1 hour
-        </p>
+        <div class="feature-item">
+            <i class="fas fa-shield-alt"></i>
+            <div>
+                <h3>Risk Management</h3>
+                <p>Every trade comes with a strict Stop-Loss to protect your hard-earned capital.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-gem"></i>
+            <div>
+                <h3>Hero or Zero Trades</h3>
+                <p>Special Expiry Day setups for high-return potential trades.</p>
+            </div>
+        </div>
 
     </div>
 
     <footer>
         <p class="disclaimer">
-            Disclaimer: Trading in the stock market involves risk. The signals provided are for educational purposes only. Please consult your financial advisor before investing.
+            Risk Warning: Trading involves significant risk. Our content is for educational guidance only. Please trade responsibly and consult experts.
         </p>
         
         <a href="https://telegram.me/+TRlJl628l-FkMWE9" class="agency-footer" target="_blank">
             <span>Ads Managed by</span>
             <strong>Nexgroww Agency</strong>
-            <i class="fas fa-external-link-alt" style="font-size: 10px; color: #444;"></i>
+            <i class="fas fa-external-link-alt" style="margin-left:5px; font-size: 11px; opacity: 0.5;"></i>
         </a>
     </footer>
-
-    <style>
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
-    </style>
 
 </body>
 </html>
